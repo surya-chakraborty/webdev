@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM inhand</title>
+</head>
+<body>
+    <div class="center" style="height: 500px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <!-- <h1>Todo List</h1>
+        <h4>1. Complete Dom Notion codes</h4>
+        <h4>2. Complete assignments</h4> -->
+
+        <div class="todos">
+            <div id="todo-1">
+                <h4>1. Complete Dom notion codes</h4>
+                <button onClick="deleteTodo(1)">Delete</button>
+            </div>
+            <div id="todo-2">
+                <h4>
+                    2. Complete assignments
+                </h4>
+                <button onClick="deleteTodo(2)">Delete</button>
+            </div>
+        </div>
+
+        <div class="inputs">
+            <input type="text" name="" id="inp"></input>
+            <button onclick="addTodo()">Add Todo</button>
+            <!-- <button>Delete Todo</button> -->
+        </div>
+
+    </div>
+    <script>
+        // const title = document.querySelector('h1')
+        // console.log(title.innerHTML)
+        // title.textContent = 'Hello Surya'
+        // const firstTodo = document.querySelector('h4')
+        // console.log(firstTodo.innerHTML)
+        // firstTodo.innerHTML = '1. Go and Propose her'
+
+        // Dom - select, update and add 
+        // Selection : querySelector/ getElementById/ClassName, querySelectorAll/ getElementsByClassname [nodelist array]
+        // update content : innerHTML, textContent
+        // deleting elem : removeChild from parentnode, onClick function
+        // adding elem : creaetElement, appendChild in parentnode.
+
+        // function addTodo(){
+        //     const input = document.querySelector('#inp')
+        //     console.log(input)
+
+        //     const parentDiv = document.createElement('div')
+        //     parentDiv.textContent = input.value
+
+        //     const todosDiv = document.querySelector('.todos')
+        //     todosDiv.appendChild(parentDiv)
+        // }
+
+
+        let todoIndex = 3
+        function addTodo(){
+            const input = document.querySelector('#inp')
+            console.log(input.value)
+
+            const parent = document.querySelector('.todos')
+
+            const div = document.createElement('div')
+            const h4 = document.createElement('h4')
+            const button = document.createElement('button')
+            
+            div.setAttribute('id', 'todo-' + todoIndex)
+            button.setAttribute('onClick', 'deleteTodo(' + todoIndex + ')')
+
+            h4.textContent = input.value
+            button.textContent = 'delete'
+
+            div.appendChild(h4)
+            div.appendChild(button)
+            parent.appendChild(div)
+
+            todoIndex++
+        }
+
+        function deleteTodo(i){
+            const elem = document.querySelector('#todo-' + i)
+            console.log(elem)
+            // console.log(elem.value)
+
+            document.querySelector('.todos').removeChild(elem)
+        }
+    </script>
+</body>
+</html>
