@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Studio Code - Your Goto Online Code Editor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            height: 100vh;
+            width: 100%;
+            /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+            /* background-color: rgba(0, 0, 0, 0.696);
+             */
+             /* background-image: url(https://plus.unsplash.com/premium_photo-1667119474172-812ae69ae694?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); */
+            /* Taken From Codepen : https://codepen.io/edmundojr/pen/xOYJGw*/
+            --dot-bg: black;
+            --dot-color: white;
+            --dot-size: 1px;
+            --dot-space: 22px;
+                background:
+                    linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+                    linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+                    var(--dot-color);
+
+            color: #fff;
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+        }
+        li{
+            margin: 0px 10px;
+            
+        }
+        .hero-para{
+            font-size: 12px;
+        }
+        .hero-banner{
+            background-image: url(./assets/vsCodeLPBG.webp);
+            width: 50%;
+            height: 560px;
+            margin-top: 40px;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .hero-img{
+            background-image: url(./assets/HeroImg.png);
+            height: 100%;
+            border-radius: 10px;
+        }  
+    </style>
+</head>
+<body>
+    <div class="navbar" style="display: flex; width: 100vw; padding: 15px 60px; justify-content: center; align-items: center; height: 60px; background-color: black;">
+        <h1 style="font-size: medium; margin-right: 50px;">Visual Studio Code</h1>
+        <ul style="display: flex; list-style: none; width: 50%; padding: 0; margin: 0; align-items: center;">
+            <li> <a href="#">Docs</a></li>
+            <li> <a href="#">Updates</a></li>
+            <li> <a href="#">Blog</a></li>
+            <li> <a href="#">API</a></li>
+            <li> <a href="#">Extension</a></li>
+            <li> <a href="#">MCP</a></li>
+            <li> <a href="#">FAQ</a></li>
+            <li> <a href="#">Learn</a></li>
+            <li> <a href="#">Events</a></li>
+        </ul>
+        <div style="display: flex;">
+            <div style="display: flex; border: 1px solid #ffffff9c; width: 180px; border-radius: 4px; padding-left: 10px; padding-top: 3px; margin-right: 30px;">
+                Search
+            </div>
+            <div style="padding: 4px 8px; color: #fff; background-color: blue; margin: 0; border-radius: 4px;">
+                Download
+            </div>
+        </div>
+    </div>
+    <div class="herosection" style="display: flex; align-items: center; flex-direction: column;">
+        <h1 style="font-size: 60px; margin: 35px 0px 16px 0px;"> The open source AI code editor</h1>
+        <p  style="font-size: 25px; margin-bottom: 30px;">Your home for multi-agent development</p>
+
+        <div class="hero-button" style=" background-color: rgba(0, 0, 0, 0.689); width: 350px; padding: 15px; border-radius: 10px; display: flex;  flex-direction: column; justify-content: center; align-items: center; gap: 15px;">
+            <div style="background-color: white; color: black; border-radius: 10px; padding: 14px 28px; display: flex; justify-content: center; align-items: center; font-weight: 600; font-size: 18px; width: 100%;">
+                Download for Windows
+            </div>
+            <p class="hero-para">Web, Insiders Edition, or other platforms</p>
+            <p class="hero-para">By using VS Code, you agree to its license and privacy statement</p>
+        </div>
+
+        <div class="hero-banner">
+            <div class="hero-img">
+
+            </div>
+        </div>  
+    </div>
+</body>
+</html>
