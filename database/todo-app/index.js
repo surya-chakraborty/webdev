@@ -6,12 +6,16 @@ MongoDB : create a free M0 cluster server =-> create new db -> connect -> method
 
 Organization > Project > Cluster > Database > Collection > Documents
 
+Mongoose Methods used : create, findone
+Jwt Method used: sign and verify
+
 */
 
 const express = require('express')
 const mongoose = require('mongoose')
 const { UserModel, TodoModel } = require('./db.js')
 const jwt = require('jsonwebtoken')
+const JWT_SECRET = 'HJW_WUNFI'
 
 const app = express()
 app.use(express.json())
@@ -38,11 +42,47 @@ const auth = (req, res, next) => {
     }
 }
 
-app.post('/signup', function(req, res){
+// take creds from request body > create new document on usermodel
+app.post('/signup', async function(req, res){
+    const name = req.body.name
+    const email = req.body.email
+    const password = req.body.password
 
-})
+    await UserModel.create({
+        name: name,
+        email: email,
+        password: password
+    })
 
-app.post('/login', function(req, res){
+    res.json({
+        message: 'signed up'
+    })
+})  
+
+// get creds from req body > find user > if exists create token using jwt.sign with id as objectid of user
+app.post('/login', async function(req, res){
+    const email = req.body.email
+    const password = req.body.password
+
+    const response = await UserModel.findOne({
+        email: email,
+        password: password
+    })
+
+    if(response){
+        const token = jwt.sign({
+            id: response._id.toString()
+        }, JWT_SECRET)
+
+        return res.json({
+            token
+        })
+
+    }else{
+        return res.status(403).json({
+            message: "Incorrect Credentials!"
+        })
+    }
 
 })
 
