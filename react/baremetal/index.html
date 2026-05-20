@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counter app: baremetal react with dom</title>
+</head>
+<body>
+    <div class="btn-parent">
+
+    </div>
+
+    <script>
+        /*
+        Baremetal counter app with dom to mimic react flow:
+        In reaact, we have state, compoent and re-render function.
+        compoent takes the state and render on screen
+        On state chnage the component depending on it re-renders.
+
+        react needs these 3 things to operate and it's just
+        a diffing algorithm with virtual dom and reconcillation
+        for making it optimized.
+        */
+
+        // state object source of truth
+        let state = {
+            count: 0
+        }
+
+        // On button press : increase count and re-render
+        function onButtonPress(){
+            state.count++
+            buttonComponentReRender()
+        }
+
+        
+        // Re-render function : make the innerHTML empty > create button comp with new state.count > appendChild on parent elem
+        function buttonComponentReRender(){
+            document.querySelector('.btn-parent').innerHTML = ""
+            const component = buttonComponent(state.count)
+            document.querySelector('.btn-parent').appendChild(component)
+        }
+
+        // create button compoent with count value
+        function buttonComponent(count){
+            const btn = document.createElement('button')
+            btn.innerHTML = `Counter ${count}`
+            btn.setAttribute('onClick', 'onButtonPress()')
+            return btn
+        }
+
+        buttonComponentReRender()
+        </script>
+</body>
+</html>
