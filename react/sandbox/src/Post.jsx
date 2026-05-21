@@ -7,7 +7,7 @@ const style = {
     padding: 20 
   }
 
-export default function PostComponent( {image, name, subtitle, time, description}){
+export function PostComponent( {image, name, subtitle, time, description}){
 
   return (
     <div style={style}>

@@ -1,0 +1,25 @@
+What is react ? react is a diffing engine that user reconcillation to track dom chagees and efficiently chage accordingly in virtual dom adn mount, unmount, update the compoents.
+React is based upon 3 things: state object, compoent and re-renders
+
+what is useState ? it's a way to create and update state in react.
+useState gives back an array in which the current state and a function to update the state is provided.
+
+what is useEffect ? hooks that helps us to mange sideEffects in components efficiently.
+Now, what are side effects ? any operation that interect with the outside world and have effects beyond the component's rendering.
+For example: Fetching data, Modifying DOM manually, Subscribing for events (websocket, browser events, timers), starting a clock.
+
+On each re-render that might be called and cause : duplicated or unneccessary effects, incosistent behaviour, performance issues.
+
+useEffect(() => {
+
+    // side effect code 
+    fetchData()
+
+    return () => {
+        // cleanup function 
+    }
+
+}, [ dependencies array])
+empty dependencies array leads to : run only on mount
+
+
