@@ -8,6 +8,7 @@ import Modals from "./Modals"
 import Togglemsg from "./Togglemsg"
 import Topbar from "./Topbar"
 import Collapsible from "./Collapsible"
+import ClassCounter from "./ClassComponent"
 // import { PostComponent } from "./Post.jsx"
 
 function App(){
@@ -120,6 +121,10 @@ function App(){
           <p>This is the content for section-2</p>
         </Collapsible>
       </div>
+
+      <br />
+      class based component:
+      <ClassCounter/>
 
     </>
   )
