@@ -9,7 +9,19 @@ import Togglemsg from "./Togglemsg"
 import Topbar from "./Topbar"
 import Collapsible from "./Collapsible"
 import ClassCounter from "./ClassComponent"
+import ErrorBoundary from "./ErrorBoundary"
 // import { PostComponent } from "./Post.jsx"
+
+
+// Made for testing out child component behaviour and fallback ui code for class based error boudary component.
+const BuggyComponent = () => {
+  // return (
+  //   <div>
+  //     Hey There 
+  //   </div>
+  // )
+  throw new Error("I Crashed!")
+}
 
 function App(){
   const [isOpen, setIsOpen] = useState(false)
@@ -125,6 +137,12 @@ function App(){
       <br />
       class based component:
       <ClassCounter/>
+
+      <br />
+      error boundary class based component example:
+      <ErrorBoundary>
+        <BuggyComponent/>
+      </ErrorBoundary>
 
     </>
   )
