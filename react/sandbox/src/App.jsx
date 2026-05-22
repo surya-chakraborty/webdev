@@ -1,7 +1,18 @@
-import { useEffect, useState } from "react"
+// import { useEffect, useState } from "react"
+import { useState } from "react"
+import Card from "./Card"
+import CountDown from "./CountDown"
+import UserList from "./FetchData"
+import Greetings from "./Greetings"
+import Modals from "./Modals"
+import Togglemsg from "./Togglemsg"
+import Topbar from "./Topbar"
+import Collapsible from "./Collapsible"
 // import { PostComponent } from "./Post.jsx"
 
 function App(){
+  const [isOpen, setIsOpen] = useState(false)
+  /*
   const [count, setCount] = useState(1)
 
   useEffect(() => {
@@ -13,7 +24,7 @@ function App(){
       clearInterval(interval)
     }
   }, [])
-  /*
+  
   const [posts, setPosts] = useState([])
 
   const postComponents = posts.map(post => <PostComponent
@@ -51,8 +62,63 @@ function App(){
           </div>
         </div>
       </div> */}
-      <div>
+      {/* <div>
         {count}
+      </div> */}
+
+      <div>
+        <Topbar/>
+        <br />
+        Here's a tiny timer for you:
+        <CountDown/>
+        <br />
+        Wanna view our proud users's ?
+        Here you go:
+        <UserList/>
+
+        <br />
+        Props example: 
+        <Greetings name='Surya Chakraborty'/>
+
+        <br />
+        Conditional message rendering: 
+        <Togglemsg/>
+
+        <br />
+        Cards using children props:
+        <Card>
+          <h2>Hey There</h2>
+          <p>Here's then card conetnt body!</p>
+        </Card>
+        <Card>
+          <h2>greeting from xyz</h2>
+          <p>We wlcome you all in our grand meetup! </p>
+        </Card>
+
+        <br />
+        modals:
+        <div>
+          <button onClick={function(){
+            setIsOpen(true)
+          }}>open modal</button>
+          <Modals isOpen={isOpen} onClose={function(){
+            setIsOpen(false)
+          }}>
+            <h1>Modal Title</h1>
+            <p>There's some conetxt inside the modal</p>
+          </Modals>
+        </div>
+      </div>
+
+      <br />
+      Collapsible:
+      <div>
+        <Collapsible title='section 1'>
+          <p>This is the content for section-1</p>
+        </Collapsible>
+        <Collapsible title='section 2'>
+          <p>This is the content for section-2</p>
+        </Collapsible>
       </div>
 
     </>
