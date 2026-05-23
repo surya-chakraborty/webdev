@@ -10,6 +10,7 @@ import Stopwatch from './StopWatch'
 import { useState } from 'react'
 import usePrev from './customHooks/usePrev'
 import Bulb from './propDrilling/Bulb'
+import Parent from './contextApi/Counter'
 
 const App = () => {
   const [count, setCount] = useState(0)
@@ -34,6 +35,10 @@ const App = () => {
     <br />
     Props-Drilling and excessive re-render example:
     <Bulb/>
+
+    <br />
+    contextapi :
+    <Parent/>
     
       {/* <BrowserRouter>
         <Routes>
