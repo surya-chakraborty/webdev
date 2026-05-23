@@ -9,6 +9,7 @@ import Chat from './ScrollBottom'
 import Stopwatch from './StopWatch'
 import { useState } from 'react'
 import usePrev from './customHooks/usePrev'
+import Bulb from './propDrilling/Bulb'
 
 const App = () => {
   const [count, setCount] = useState(0)
@@ -30,6 +31,9 @@ const App = () => {
       <button onClick={() => setCount(count - 1)}>Decreament</button>
     </div>
 
+    <br />
+    Props-Drilling and excessive re-render example:
+    <Bulb/>
     
       {/* <BrowserRouter>
         <Routes>
