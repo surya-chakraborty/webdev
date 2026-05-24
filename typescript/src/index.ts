@@ -20,6 +20,22 @@ types are kinda the same as inyerfaces, what are the diffrences then ?
 > types can be used for primitive vlues but interfaces can be used for only objects and extending classes.
 > intersection of multiple interfaces or one interface and one type ina single type is possible.
 
+enums are collection of constant keywords indefault on runtime values as 0,1,2, and so on
+the values can be chnaged to any number and strings, useful in status codes or roles in backend applications
+
+Generics are language-independent concepts (also used in C++, Java, etc.) that allow writing reusable and 
+type-safe code where the type is decided later, used in function, classes, react useSatte varibales, types and interfaces etc.
+
+exporting and importing are same asb  ES6 modules javascript 
+constant/named exports : mutiple exports ina single file
+export function name (){
+}
+import { name } from './file'
+
+deafult exxports: one single default export per file
+export deafult function name(){
+}
+import  name from './file'
 */
 
 let x:number = 1
@@ -226,3 +242,30 @@ enum ResponseStatus {
 //         message: 'Signed Up Successfully'
 //     })
 // })
+
+
+/*
+Why generics ? 
+Let’s say you have a function that needs to return the first element of an array. Array can be of type either string or integer.
+How would you solve this problem?
+
+
+function getFirst(arr: (number | string)[]){
+    return arr[0]
+}
+
+const el = getFirst([1, 2, 3])
+console.log(el.toUpperCase()) // we can't use it casue ts can't infer the right type of return 
+// another probelm is that we can even pass on [1, 5, "8"] , muti typed values, which isn't great for a user facing application
+
+Generics solves the problem: Generics enable you to create components that work with any data type while still providing compile-time type safety.
+*/
+
+function getFirst<T>(arr: T[]){
+    return arr[0]
+}
+
+// check the return types hovering on thne fnc name on the 2 follwing lines
+const el = getFirst<number>([1, 2, 3])
+const el2 = getFirst<string>(['hey', 'hello', 'hi'])
+console.log(el2.toUpperCase())

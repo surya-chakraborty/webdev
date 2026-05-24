@@ -70,12 +70,24 @@ const result = findVoter([
 console.log(result);
 var Direction;
 (function (Direction) {
-    Direction["UP"] = "heleulu";
-    Direction["DOWN"] = "Down";
-    Direction["LEFT"] = "Left";
-    Direction["RIGHT"] = "wtf";
+    Direction[Direction["UP"] = 0] = "UP";
+    Direction[Direction["DOWN"] = 1] = "DOWN";
+    Direction[Direction["LEFT"] = 2] = "LEFT";
+    Direction[Direction["RIGHT"] = 3] = "RIGHT";
 })(Direction || (Direction = {}));
 function logkeys(keyPressed) {
-    console.log('Key Pressed', keyPressed);
+    console.log('Key Pressed: ', keyPressed);
 }
 logkeys(Direction.RIGHT);
+var ResponseStatus;
+(function (ResponseStatus) {
+    ResponseStatus[ResponseStatus["Success"] = 200] = "Success";
+    ResponseStatus[ResponseStatus["NotFound"] = 404] = "NotFound";
+    ResponseStatus[ResponseStatus["Error"] = 500] = "Error";
+})(ResponseStatus || (ResponseStatus = {}));
+function getFirst(arr) {
+    return arr[0];
+}
+const el = getFirst([1, 2, 3]);
+const el2 = getFirst(['hey', 'hello', 'hi']);
+console.log(el2.toUpperCase());
