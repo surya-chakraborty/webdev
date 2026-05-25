@@ -91,3 +91,35 @@ function getFirst(arr) {
 const el = getFirst([1, 2, 3]);
 const el2 = getFirst(['hey', 'hello', 'hi']);
 console.log(el2.toUpperCase());
+const displayUser = (user) => {
+    console.log(`Name: ${user.firstName}, Email: ${user.email}`);
+};
+displayUser({
+    firstName: 'Surya',
+    email: 'surya@gmail.com'
+});
+function updateUser(updateProps) {
+}
+updateUser({});
+const config = {
+    endpoint: 'http://loclahost:300/exmaple',
+    apiKey: '1dh922hd92q0nh'
+};
+const userDB = {
+    'abc123': {
+        id: 'abc123',
+        name: 'Hon Koe'
+    },
+    'xyz345': {
+        id: 'xyz345',
+        name: 'Johny Doe'
+    }
+};
+const userMap = new Map();
+userMap.set('abc123', { id: 'abc123', name: 'Hon Koe' });
+userMap.set('ycbet2647', { id: 'ycbet2647', name: 'some humanName' });
+console.log(userMap.get('ycbet2647'));
+const handleEvent = (event) => {
+    console.log(`Handelling Event: ${event}`);
+};
+handleEvent('click');

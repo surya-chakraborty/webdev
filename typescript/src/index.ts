@@ -269,3 +269,81 @@ function getFirst<T>(arr: T[]){
 const el = getFirst<number>([1, 2, 3])
 const el2 = getFirst<string>(['hey', 'hello', 'hi'])
 console.log(el2.toUpperCase())
+
+
+// Pick: rather tne creating a new type/interface create a new type picking up from an existing interface/type
+type UserProfile = Pick<User, 'firstName' | 'email'>
+
+const displayUser = (user: UserProfile) => {
+    console.log(`Name: ${user.firstName}, Email: ${user.email}`);
+}
+
+displayUser({
+    firstName: 'Surya',
+    email: 'surya@gmail.com'
+})
+
+// partial makes all the fields of an existing interface/ type as optional, helpful when we want to do updates on DB.
+type UpdatePropsOPtional = Partial<UserProfile>
+
+function updateUser(updateProps: UpdatePropsOPtional){
+    // hit the DB and upfdate props what's needed
+}
+
+updateUser({})
+
+// Readonly fields in an interface (const equivalent for interfaces, though acts onlly in compile time not in runtime unlike const), used in config objects
+interface Config {
+    readonly endpoint: string
+    readonly apiKey: string
+}
+
+const config: Config = {
+    endpoint: 'http://loclahost:300/exmaple',
+    apiKey: '1dh922hd92q0nh'
+}
+
+// config.apiKey = 'neKey728hjdna'
+
+// Record
+
+interface Human {
+    id: string
+    name: string
+}
+
+// bruteforce way:
+// type AppUser = {[key: string]: Human }
+// Optimal approach using records:
+type AppUser = Record<string, Human>
+
+const userDB: AppUser = {
+    'abc123': {
+        id: 'abc123',
+        name: 'Hon Koe'
+    },
+    'xyz345': {
+        id: 'xyz345',
+        name: 'Johny Doe'
+    }
+}
+
+
+// using Maps : init empty map
+const userMap = new Map<string, Human>()
+
+//  setting map values
+userMap.set('abc123', { id: 'abc123', name: 'Hon Koe'})
+userMap.set('ycbet2647', { id: 'ycbet2647', name: 'some humanName'})
+
+// accessing map value 
+console.log(userMap.get('ycbet2647'));
+
+// Exclude: In a function that can accept several types of inputs but you want to exclude specific types from being passed to it.
+type EventType = 'click' | 'scroll' | 'mouseMove'
+type ExcludeEvent = Exclude<EventType, 'scroll'>
+const handleEvent = (event: ExcludeEvent) => {
+    console.log(`Handelling Event: ${event}`)
+}
+
+handleEvent('click')
