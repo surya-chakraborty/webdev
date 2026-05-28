@@ -58,7 +58,7 @@ Mostly used: INNER and LEFT Join, right join is used for debugging/testing.
 */
 
 const client = new Client({
-    connectionString: `postgresql://neondb_owner:npg_PkoAEH2CiRY6@ep-shiny-king-aqpmv1ha.c-8.us-east-1.aws.neon.tech/neondb?sslmode=verify-full`
+    connectionString: process.env.DATABASE_URL
 })
 
 // create todos table using query method of client
@@ -169,12 +169,12 @@ async function insertUserandAddress(username, email, password, city, country, st
 // createTodosTable()
 // createAdressTable()
 // writeAdressQuery(2, 'Las Vegas', 'California', 'USA', '100008')
-// fetchUsersAdress(2)
+fetchUsersAdress(2)
 
-insertUserandAddress('johnydoe', 
-    'johny.doe@example.com', 
-    'securepassword123', 
-    'New York', 
-    'USA', 
-    'Washington DC', 
-    '10001')
+// insertUserandAddress('johnydoe', 
+//     'johny.doe@example.com', 
+//     'securepassword123', 
+//     'New York', 
+//     'USA', 
+//     'Washington DC', 
+//     '10001')
