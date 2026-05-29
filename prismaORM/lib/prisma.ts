@@ -1,6 +1,6 @@
 import "dotenv/config"
 import { PrismaPg } from "@prisma/adapter-pg"
-import { PrismaClient } from "../generated/prisma/client"
+import { PrismaClient } from "../generated/prisma/client.js"
 
 // create instance of prisma client to use in diffrent files
 // pass in the connection string to prismaPg adapter 
