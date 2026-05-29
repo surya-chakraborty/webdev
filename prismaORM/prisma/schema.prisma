@@ -12,12 +12,18 @@ datasource db {
   provider = "postgresql"
 }
 
+/*
+Prisma let's us add relationship between tables: one to one, one to many, many to one and many to many 
+Here we need one to many relationship, one user can habe multiple todos
+*/
+
 model User{
   id Int @id @default(autoincrement())
   username String @unique
   password String
   firstName String
   lastName String
+  todos Todo[]
 }
 
 model Todo{
@@ -26,5 +32,6 @@ model Todo{
   description String
   done Boolean @default(false)
   userId Int 
+  user User @relation(fields: [userId], references: [id])
 }
 
