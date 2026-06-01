@@ -14,39 +14,41 @@ and fetch on route: http://localhost:3000/api/user
 // import Loading from "./loading"
 
 // To fetch in nextJS ssr components , we don't need UseEffect hooks
-// async function getUserDetails(){
-//  try {
-//     const response = await fetch('http://localhost:3000/api/user')
-//     const json = await response.json()
-//     console.log(json)
-//     //  setTimeout(() => {
-//     //   // console.log("5 seconds delay", 5000)
-//     //  })
-//     return json
-//   }catch(e){
-//     console.log(e)
-//   }
-// }
+async function getUserDetails(){
+ try {
+    const response = await fetch('http://localhost:3000/api/user')
+    const json = await response.json()
+    console.log(json)
+    //  setTimeout(() => {
+    //   // console.log("5 seconds delay", 5000)
+    //  })
+    return json
+  }catch(e){
+    console.log(e)
+  }
+}
 
 // nextJS do support async components
 export default async function Home() {
-  // const userData = await getUserDetails()
+  const userData = await getUserDetails()
 
-  // if(!userData){
-  //   return (
-  //     <Loading/>
-  //   )
-  // }
+  if(!userData){
+    return (
+      <div>
+        No user data found!
+      </div>
+    )
+  }
   return (
 
     <div className="flex flex-col justify-center h-screen">
       <div className="flex justify-center">
         <div className="border p-8 rounded">
           <div>
-          {/* Name: {userData.username} */}
-      Surya Chakraborty
+          Name: {userData.name}
+            {/* Surya Chakraborty */}
           </div>
-          {/* {userData.email} */}
+          {userData.email}
 
         </div>
 
