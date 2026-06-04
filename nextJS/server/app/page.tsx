@@ -1,3 +1,5 @@
+import { prisma } from '@/lib/prisma'
+
 /*
 Backends In NextJS? yes, it's a fullstack framework
 What are the pros? single codebase, no cors issues, single domain fot both fe and be
@@ -16,13 +18,19 @@ and fetch on route: http://localhost:3000/api/user
 // To fetch in nextJS ssr components , we don't need UseEffect hooks
 async function getUserDetails(){
  try {
-    const response = await fetch('http://localhost:3000/api/user')
-    const json = await response.json()
-    console.log(json)
+  // Rather than sending request from a server back to th enext server move the logic here only 
+    // const response = await fetch('http://localhost:3000/api/user')
+    // const json = await response.json()
+    // console.log(json)
     //  setTimeout(() => {
     //   // console.log("5 seconds delay", 5000)
     //  })
-    return json
+
+    const user = await prisma.user.findFirst({})
+    return {
+      name: user?.username
+    }
+
   }catch(e){
     console.log(e)
   }
@@ -48,7 +56,7 @@ export default async function Home() {
           Name: {userData.name}
             {/* Surya Chakraborty */}
           </div>
-          {userData.email}
+          {/* {userData.email} */}
 
         </div>
 

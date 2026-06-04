@@ -1,6 +1,7 @@
 "use client"
 import { ChangeEventHandler, useState} from 'react'
 import { useRouter } from 'next/navigation'
+import { signup } from '@/actions/user'
 
 export function Signup(){
 
@@ -26,16 +27,8 @@ export function Signup(){
                                 setPassword(e.target.value)
                             }} label="Password" type={"password"} placeholder="123456" />
                             <button onClick={async function(){
-                                const res = await fetch('http://localhost:3000/api/user', {
-                                    method: "POST",
-                                    headers: {
-                                        "Content-Type": "application/json"
-                                    },
-                                    body: JSON.stringify({
-                                        username,
-                                        password
-                                    })
-                                })
+                                const res = await signup(username, password)
+                                localStorage.setItem("token", res)
                                 console.log(res)
 
                                 // after signup redirect to home page 
